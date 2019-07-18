@@ -1,0 +1,57 @@
+.bg-verdeagua {
+    background-color: #148F77;
+}
+.bg-som {
+    background-color: rgb(133, 233, 167);
+}
+.bg-somb
+{
+    background-color: rgba(214, 214, 214, 0.822);
+}
+.bg-sombr{
+    background-color: rgba(133, 233, 166, 0.582);
+}
+
+.bg-agua {
+    background-color: #A2D9CE;
+}
+.bg-verdeagua2{
+    background-color: rgb(1, 223, 116);
+}
+.bg-nav{
+    background-color: rgb(124, 243, 159);
+}
+.bg-ind{
+    background-image: url('fondo.jpg');
+}
+.bg-celeste{
+    background-color: #04B4AE;
+}
+.bg-fondo{
+    background-color: rgb(249, 252, 208);
+}
+.marg{
+    margin-top: 10px;
+}
+.slideCar{
+    border: #A2D9CE;
+    background-color: rgba(143, 228, 168, 0.404); 
+    padding: 2%;
+}
+.bgExp{
+    border: #A2D9CE;
+    background-color: rgba(143, 228, 200, 0.404); 
+}
+
+.bgOth{
+    border: rgb(117, 219, 151);
+    background-color: rgba(143, 228, 150, 0.404); 
+}
+
+.bgInic{
+    background-color: rgba(255, 255, 255, 0.76); 
+}
+
+.testSize{
+    font-size: 50px;
+}
