@@ -4,10 +4,17 @@ include("templates/menuadm.php");
 include("recursos/Conexion.php");
 session_start();
 ?>
+<?php
+@$codtest = $_GET['ver'];
+$consulta = "SELECT * FROM test WHERE cod_test = '$codtest'";
+$resultado = mysqli_query($conexion, $consulta) or die("<strong>ALGO SALIÓ MAL CON LA CONSULTA </strong>");
+$fila = mysqli_fetch_array($resultado);
 
+?>
 <?php
 //echo var_dump($_POST);
 if (isset($_POST['enviar'])) {
+    $cod_test = $_POST['cod_test'];
     if (isset($_POST['preg'])) {
         $preg = $_POST['preg'];
     } else { }
@@ -70,7 +77,7 @@ if (isset($_POST['enviar'])) {
         // $buscarpreg = "SELECT * FROM pregunta"or die("FALLO DE CONSULTA POR PREGUNTA");
         // $restest = mysqli_query($conexion, $buscarpreg);
         $num = rand(5, 100);
-        $sql = "INSERT INTO pregunta (cod_pregunta, detalle_preg, fk_test) VALUES ('$num','$preg','T02')";
+        $sql = "INSERT INTO pregunta (cod_pregunta, detalle_preg, fk_test) VALUES ('$num','$preg','$cod_test')";
         $insert = mysqli_query($conexion, $sql) or die("<strong> FALLO EL INSERT </strong>");
         if ($insert) {
             echo '<div class="alert alert-success" role="alert">
@@ -164,6 +171,26 @@ if (isset($_POST['enviar'])) {
                                     <div class="form-group">
                                         <input class="form-control col-md-2" type="text" readonly="true" value="P001">
                                     </div> -->
+                                    <label for="tipotest">Seleccione un Test: </label>
+                                    <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="tipodetest">Código</label>
+                                            </div>
+
+                                            <?php
+                                            $consulta = "SELECT * FROM test";
+                                            $resultado = mysqli_query($conexion, $consulta) or die("<strong>A LGO SALIÓ MAL CON LA CONSULTA </strong>");
+
+                                            echo "<select class='custom-select' name='cod_test' id='cod_test' value='cod_test'>";
+                                            echo "<option selected>Seleccione...</option>";
+
+                                            while ($row = mysqli_fetch_array($resultado)) {
+                                                echo "<option value=\"" . $row['cod_test'] . "\">" . $row['cod_test'] . "</OPTION>";
+                                            }
+                                            mysqli_close($conexion);
+                                            echo "</select>";
+                                            ?>
+                                        </div>
                                     <label for="titpreg">Ingrese la pregunta:</label>
                                     <div class="form-group">
                                         <textarea class="form-control" name="preg" id="preg" cols="30" rows="2"></textarea>

@@ -14,7 +14,7 @@ if (isset($_POST['enviar'])) {
     $desctest = $_POST['desctest'];
     $npreg = $_POST['npreg'];
     $errores;
-    //echo var_dump($_POST);
+    echo var_dump($_POST);
     //echo "<h1>" . $titulotest . "</h1>"  ;
 
     if (!empty($tipotest) && ($tipotest != "Seleccione...")) {
@@ -128,7 +128,7 @@ if (isset($_POST['enviar'])) {
 
                                         <div class="form-group">
                                             <label for="idtest">ID Test</label>
-                                            <input class="col-md-2 form-control" type="text" id="idtest" value="T03" name="idtest" readonly="true">
+                                            <input class="col-md-2 form-control" type="text" id="idtest" placeholder="T03" name="idtest">
                                             <label for="titest">Titulo del Test</label>
                                             <input class="col form-control" type="text" id="titest" name="titulotest">
 
